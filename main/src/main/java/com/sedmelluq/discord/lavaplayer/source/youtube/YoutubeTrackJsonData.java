@@ -28,6 +28,11 @@ public class YoutubeTrackJsonData {
     try {
       JsonBrowser playerInfo = NULL_BROWSER;
       JsonBrowser playerResponse = NULL_BROWSER;
+      
+      if (result.isMap()) {
+          playerInfo = result.get("player");
+          playerResponse = result.get("playerResponse");
+      }
 
       for (JsonBrowser child : result.values()) {
         if (child.isMap()) {
